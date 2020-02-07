@@ -7,12 +7,16 @@ const initialState = {
 function rootReducer(state = initialState, action) {
     switch (action.type) {
         case GET_MULTIPLE:
-            return { users: action.payload }
+            return Object.assign({}, state, {
+                users: action.payload
+            });
         case GET_SINGLE:
             /*
                 llenar {single} con datos
             */
-            return { single }
+            return Object.assign({}, state, {
+                single
+            });
         default:
             return state;
     }
