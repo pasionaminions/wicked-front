@@ -11,11 +11,8 @@ function rootReducer(state = initialState, action) {
                 users: action.payload
             });
         case GET_SINGLE:
-            /*
-                llenar {single} con datos
-            */
             return Object.assign({}, state, {
-                single
+                single: action.payload
             });
         case EDIT_SINGLE:
             return Object.assign({}, state, {
