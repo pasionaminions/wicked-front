@@ -14,5 +14,5 @@ class Edit_btn extends Component {
         );
     }
 }
-const add_btn = connect(null, mapDispatchToProps)(Add_btn);
-export default add_btn;
+const edit_btn = connect(null, mapDispatchToProps)(Edit_btn);
+export default edit_btn;
