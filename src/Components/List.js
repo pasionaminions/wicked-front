@@ -34,7 +34,7 @@ class List extends Component {
 
     createList = () => {
         return this.props.List.map((x, id)=>{
-            return <tr style={{backgroundColor: x.color}} key={id}>
+            return <tr style={{backgroundColor: x.color, color: x.color==="Black"?"white":"black"}} key={id}>
                 <td>{x.name}</td>
                 <td>{x.email}</td>
                 <td>{x.rate}/10</td>
