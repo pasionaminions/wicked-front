@@ -33,6 +33,8 @@ class List extends Component {
                 <td>{x.name}</td>
                 <td>{x.email}</td>
                 <td>{x.rate}/10</td>
+                <td></td>
+                <td></td>
             </tr>
         });
     }
@@ -46,6 +48,8 @@ class List extends Component {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Rate</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
