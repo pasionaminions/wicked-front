@@ -1,21 +1,22 @@
-import { GET_MULTIPLE, GET_SINGLE } from "./action-types";
+import { GET_MULTIPLE, GET_SINGLE, EDIT_SINGLE, POST_USER, DELETE_USER } from "./action-types";
 
-// export function get_multiple() {
-//     return function (dispatch) {
-//         return fetch("https://localhost:44324/api/Users/")
-//             .then(response => response.json())
-//             .then(json => {
-//                 dispatch({ type: LOAD_USERS, payload: json });
-//             });
-//     }
-// }
+export function get_multiple(json) {
+    return {type: GET_MULTIPLE, payload: json}
+}
 
-// export function get_single() {
-//     return function (dispatch) {
-//         return fetch("https://localhost:44324/api/Users/")
-//             .then(response => response.json())
-//             .then(json => {
-//                 dispatch({ type: ..., payload: json });
-//             });
-//     }
-// }
+export function get_single(json) {
+    return {type: GET_SINGLE, payload: json}
+
+}
+
+export function edit_user(json) {
+    return {type: EDIT_SINGLE, payload: json}
+}
+
+export function post_user(json) {
+    return {type: POST_USER, payload: json}
+}
+
+export function delete_user(json) {
+    return {type: DELETE_USER, payload: json}
+}
