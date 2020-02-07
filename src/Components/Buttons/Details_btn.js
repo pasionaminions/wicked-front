@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import Button from 'react-bootstrap/Button';
+import { get_single } from '../../thunks/index';
+import { connect } from 'react-redux';
+import { Button } from 'reactstrap';
 
 const mapDispatchToProps = {
     get_single
 }
 
 class Details_btn extends Component {
-
 
     render() {
         return (

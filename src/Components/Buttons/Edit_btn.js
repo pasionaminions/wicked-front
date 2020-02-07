@@ -1,16 +1,17 @@
 import React, { Component } from "react";
-import Button from 'react-bootstrap/Button';
+import { edit_user } from '../../thunks/index';
+import { connect } from 'react-redux';
+import { Button } from 'reactstrap';
 
 const mapDispatchToProps = {
-    put_user
+    edit_user
 }
 
 class Edit_btn extends Component {
 
-
     render() {
         return (
-            <Button variant="primary" onClick={() => { this.props.put_user() }}>Edit</Button>
+            <Button variant="primary" onClick={() => {  }}>Edit</Button>
         );
     }
 }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { get_multiple } from "../thunks/index";
 import { Table } from 'reactstrap';
+import  Edit_btn from './Buttons/Edit_btn'
 
 const mapDispatchToProps = {
     get_multiple
@@ -25,7 +26,6 @@ class List extends Component {
 
     componentDidMount() {
         this.props.get_multiple();
-        console.log(this.props);
     }
 
     handleChange = (event) => {
@@ -38,7 +38,7 @@ class List extends Component {
                 <td>{x.name}</td>
                 <td>{x.email}</td>
                 <td>{x.rate}/10</td>
-                <td></td>
+                <td>{<Edit_btn id={x.id} history={this.props.history}/>}</td>
                 <td></td>
                 <td></td>
             </tr>
