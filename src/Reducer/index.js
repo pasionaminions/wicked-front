@@ -1,7 +1,8 @@
-import { GET_MULTIPLE, GET_SINGLE, EDIT_SINGLE } from "../actions/action-types";
+import { GET_MULTIPLE, GET_SINGLE, EDIT_SINGLE } from "../Actions/action-types";
 
 const initialState = {
-    users: [], single: {}
+    users: [], 
+    single: {}
 }
 
 function rootReducer(state = initialState, action) {

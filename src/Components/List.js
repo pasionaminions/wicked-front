@@ -1,17 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { get_multiple } from "../action/index";
+import { get_multiple } from "../thunks/index";
 import { Table } from 'reactstrap';
 
 const mapDispatchToProps = {
     get_multiple
 }
 
+const mapStateToProps = state => {
+    return { List: state.users }
+}
+
+
 class List extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            List: [],
             Name: "",
             Email: "",
             Rate: "",
@@ -19,8 +23,9 @@ class List extends Component {
         };
     }
 
-    componentDidMount(){
-        this.state.List = this.props.get_multiple();
+    componentDidMount() {
+        this.props.get_multiple();
+        console.log(this.props);
     }
 
     handleChange = (event) => {
@@ -28,8 +33,8 @@ class List extends Component {
     }
 
     createList = () => {
-        return this.state.List.map((x)=>{
-            <tr style={{bgcolor: x.color}}>
+        return this.props.List.map((x, id)=>{
+            return <tr style={{backgroundColor: x.color}} key={id}>
                 <td>{x.name}</td>
                 <td>{x.email}</td>
                 <td>{x.rate}/10</td>
@@ -55,12 +60,12 @@ class List extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {createList}
+                        {this.createList()}
                     </tbody>
                 </Table>
             </>
         );
     }
 }
-const details = connect(null, mapDispatchToProps)(Details);
-export default List;
+const list = connect(mapStateToProps, mapDispatchToProps)(List);
+export default list;
