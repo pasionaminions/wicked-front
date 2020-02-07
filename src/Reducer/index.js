@@ -1,4 +1,4 @@
-import { GET_MULTIPLE, GET_SINGLE } from "../actions/action-types";
+import { GET_MULTIPLE, GET_SINGLE, EDIT_SINGLE } from "../actions/action-types";
 
 const initialState = {
     users: [], single: {}
@@ -16,6 +16,10 @@ function rootReducer(state = initialState, action) {
             */
             return Object.assign({}, state, {
                 single
+            });
+        case EDIT_SINGLE:
+            return Object.assign({}, state, {
+                single: initialState.single
             });
         default:
             return state;
