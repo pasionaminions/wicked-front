@@ -11,7 +11,7 @@ class Details_btn extends Component {
 
     render() {
         return (
-            <Button variant="primary" onClick={() => { this.props.get_single() }}>Details</Button>
+            <Button color="success" onClick={() => {  }}>Details</Button>
         );
     }
 }

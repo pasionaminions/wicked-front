@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { get_multiple } from "../thunks/index";
-import { Table } from 'reactstrap';
+import { Table, ButtonGroup  } from 'reactstrap';
 import  Edit_btn from './Buttons/Edit_btn'
+import  Delete_btn from './Buttons/Delete_btn'
+import  Details_btn from './Buttons/Details_btn'
+
 
 const mapDispatchToProps = {
     get_multiple
@@ -38,9 +41,13 @@ class List extends Component {
                 <td>{x.name}</td>
                 <td>{x.email}</td>
                 <td>{x.rate}/10</td>
-                <td>{<Edit_btn id={x.id} history={this.props.history}/>}</td>
-                <td></td>
-                <td></td>
+                <td  style={{width:300}}>
+                    <ButtonGroup>
+                        <Edit_btn id={x.id} history={this.props.history}/>
+                        <Delete_btn id={x.id} history={this.props.history}/>
+                        <Details_btn id={x.id} history={this.props.history}/>
+                    </ButtonGroup>
+                </td>
             </tr>
         });
     }
@@ -54,8 +61,6 @@ class List extends Component {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Rate</th>
-                            <th></th>
-                            <th></th>
                             <th></th>
                         </tr>
                     </thead>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { get_single } from "../action/index";
+import { get_single } from "../Actions/index";
 
 const mapStateToProps = state => {
     return { obj: state.single }

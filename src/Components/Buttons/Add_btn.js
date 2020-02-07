@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import Button from 'react-bootstrap/Button';
+import { post_user } from '../../thunks/index';
+import { connect } from 'react-redux';
+import { Button } from 'reactstrap';
 
 const mapDispatchToProps = {
     post_user
@@ -10,7 +12,7 @@ class Add_btn extends Component {
 
     render() {
         return (
-            <Button variant="primary" onClick={() => { this.props.post_user() }}>Add</Button>
+            <Button variant="primary" onClick={() => {  }}>Add</Button>
         );
     }
 }

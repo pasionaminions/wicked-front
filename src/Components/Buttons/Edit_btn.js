@@ -11,7 +11,7 @@ class Edit_btn extends Component {
 
     render() {
         return (
-            <Button variant="primary" onClick={() => {  }}>Edit</Button>
+            <Button color="primary" onClick={() => {  }}>Edit</Button>
         );
     }
 }
