@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { isEmpty } from 'lodash';
-import { Form } from 'reactstrap';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 const mapStateToProps = state => {
     return { single: state.single }
@@ -17,7 +17,6 @@ class Form_edit extends Component {
             color: ""
         };
     }
-
 
     static getDerivedStateFromProps(props, state) {
         if (!isEmpty(props.single) && !state.state) {
