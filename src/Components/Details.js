@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { get_single } from "../Actions/index";
+import { get_single } from "../thunks/index";
 
 const mapStateToProps = state => {
     return { obj: state.single }
@@ -20,8 +20,9 @@ class Details extends Component {
             Color: ""
         };
     }
-    componentDidMount() {
-        this.props.get_single(this.props.params.id);
+    componentDidMount() {        
+        this.props.get_single(this.props.id);
+        console.log(this.props);
     }
 
     handleChange = (event) => {
@@ -32,19 +33,19 @@ class Details extends Component {
             <>
                 <div>
                     <label>Name</label>
-                    <input type="text" id="name" value={this.props.obj.Name} onChange={this.handleChange} />
+                    <input type="text" id="name" value={this.props.obj.name} onChange={this.handleChange} />
                 </div>
                 <div>
                     <label>Email</label>
-                    <input type="text" id="email" value={this.props.obj.Email} onChange={this.handleChange} />
+                    <input type="text" id="email" value={this.props.obj.email} onChange={this.handleChange} />
                 </div>
                 <div>
                     <label>Rate</label>
-                    <input type="text" id="rate" value={this.props.obj.Rate} onChange={this.handleChange} />
+                    <input type="text" id="rate" value={this.props.obj.rate} onChange={this.handleChange} />
                 </div>
                 <div>
                     <label>Color</label>
-                    <input type="text" id="color" value={this.props.obj.Color} onChange={this.handleChange} />
+                    <input type="text" id="color" value={this.props.obj.color} onChange={this.handleChange} />
                 </div>
             </>
         );

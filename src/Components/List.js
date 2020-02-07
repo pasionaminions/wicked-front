@@ -45,7 +45,7 @@ class List extends Component {
                     <ButtonGroup>
                         <Edit_btn id={x.id} history={this.props.history}/>
                         <Delete_btn id={x.id} history={this.props.history}/>
-                        <Details_btn id={x.id} history={this.props.history}/>
+                        <Details_btn id={x.id}/>
                     </ButtonGroup>
                 </td>
             </tr>
