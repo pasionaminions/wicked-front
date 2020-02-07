@@ -42,7 +42,6 @@ class Details extends Component {
                     <label>Color</label>
                     <input type="text" id="color" onChange={this.handleChange} />
                 </div>
-                <button onClick={() => { this.props.get_single(this.state) }}>+</button>
             </>
         );
     }
