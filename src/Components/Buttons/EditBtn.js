@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { edit_user } from '../../thunks/index';
 import { connect } from 'react-redux';
 import { Button } from 'reactstrap';
-import {Link} from 'react-router-dom';
 
 const mapDispatchToProps = {
     edit_user
