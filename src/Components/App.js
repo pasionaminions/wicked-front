@@ -7,7 +7,9 @@ import {
   BrowserRouter,
   Route,
   useParams,
-  Switch
+  Switch,
+  useRouteMatch,
+  useHistory
 } from "react-router-dom";
 
 function Detaills() {
@@ -22,9 +24,10 @@ function Detaills() {
 function Edit() {
 
   let { id } = useParams();
+  let history = useHistory();
 
   return (
-    <Form_edit id={id} />
+    <Form_edit id={id} history={history}/>
   );
 }
 
@@ -33,7 +36,7 @@ const App = () => (
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Main} />
-        <Route exact path="/edit/:id" component={Edit} />
+        <Route exact path="/edit/:id?" component={Edit} />
         <Route exact path="/details/:id" component={Detaills} />
       </Switch>
     </BrowserRouter>
