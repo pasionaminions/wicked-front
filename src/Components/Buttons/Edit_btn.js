@@ -11,7 +11,7 @@ class Edit_btn extends Component {
 
     render() {
         return (
-            <Button color="primary" onClick={() => {  }}>Edit</Button>
+            <Button color="primary" onClick={() => { this.props.history.push("/edit/" + this.props.id) }}>Edit</Button>
         );
     }
 }
