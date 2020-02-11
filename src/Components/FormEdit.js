@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { isEmpty } from 'lodash';
 import { get_single, post_user, edit_user } from "../thunks";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { ChromePicker } from "react-color";
 
 const mapStateToProps = state => {
     return { single: state.single }
@@ -12,7 +12,7 @@ const mapDispatchToProps = {
     get_single, post_user, edit_user
 }
 
-class Form_edit extends Component {
+class FormEdit extends Component {
     constructor(props) {
         super(props);
         this.new = props.match.params.id === undefined;
@@ -21,7 +21,7 @@ class Form_edit extends Component {
             name: "",
             email: "",
             rate: 0,
-            color: ""
+            color: "#FF9326"
         };
     }
 
@@ -54,6 +54,10 @@ class Form_edit extends Component {
         this.setState({ [event.target.id]: event.target.value });
     }
 
+    handleColorChange = (color) => {
+        this.setState({color: color.hex})
+    }
+
     render() {
         return (
             <Form>
@@ -71,7 +75,8 @@ class Form_edit extends Component {
                 </FormGroup>
                 <FormGroup>
                     <Label for="color">Color:</Label>
-                    <Input type="text" name="color" id="color" value={this.state.color} onChange={this.handleChange}/>
+                    {/* <Input type="text" name="color" id="color" value={this.state.color} onChange={this.handleChange}/> */}
+                    <ChromePicker color={this.state.color} onChange={this.handleColorChange}></ChromePicker>
                 </FormGroup>
                 <Button onClick={this.save}>SAVE ELEMENT</Button>
             </Form>
@@ -79,6 +84,6 @@ class Form_edit extends Component {
     }
 }
 
-const Edit = connect(mapStateToProps, mapDispatchToProps)(Form_edit);
+const Edit = connect(mapStateToProps, mapDispatchToProps)(FormEdit);
 
 export default Edit;
