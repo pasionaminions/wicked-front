@@ -12,9 +12,7 @@ class Edit_btn extends Component {
 
     render() {
         return (
-            <Link to={"/edit/" + this.props.id}>
-                <Button color="primary">Edit</Button>
-            </Link>
+            <Button color="primary" onClick={() => { this.props.history.push("/edit/" + this.props.id) }}>Edit</Button>
         );
     }
 }
