@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { isEmpty } from 'lodash';
 import { get_single, post_user, edit_user } from "../thunks";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { ChromePicker } from "react-color";
@@ -13,7 +12,7 @@ const mapDispatchToProps = {
     get_single, post_user, edit_user
 }
 
-class Form_edit extends Component {
+class FormEdit extends Component {
     constructor(props) {
         super(props);
         this.new = props.id === undefined;
@@ -100,6 +99,6 @@ class Form_edit extends Component {
     }
 }
 
-const Edit = connect(mapStateToProps, mapDispatchToProps)(Form_edit);
+const Edit = connect(mapStateToProps, mapDispatchToProps)(FormEdit);
 
 export default Edit;
