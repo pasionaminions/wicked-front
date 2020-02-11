@@ -10,7 +10,7 @@ export default class Main extends Component {
                 <Navbar style={{ backgroundColor: "#FF9326", color: "white" }} light expand="md">
                 <h1>Pasiona</h1>
                 </Navbar>
-                <List/>
+                <List history={this.props.history}/>
             </>
         );
     }
