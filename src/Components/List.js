@@ -5,7 +5,7 @@ import { Table, ButtonGroup  } from 'reactstrap';
 import  Edit_btn from './Buttons/Edit_btn'
 import  Delete_btn from './Buttons/Delete_btn'
 import  Details_btn from './Buttons/Details_btn'
-
+import Add_btn from "./Buttons/Add_btn";
 
 const mapDispatchToProps = {
     get_multiple
@@ -42,10 +42,10 @@ class List extends Component {
                 <td>{x.email}</td>
                 <td>{x.rate}/10</td>
                 <td  style={{width:300}}>
-                    <ButtonGroup>
+                    <ButtonGroup>   
                         <Edit_btn id={x.id} history={this.props.history}/>
                         <Delete_btn id={x.id} history={this.props.history}/>
-                        <Details_btn id={x.id}/>
+                        <Details_btn id={x.id} history={this.props.history}/>
                     </ButtonGroup>
                 </td>
             </tr>
@@ -56,6 +56,7 @@ class List extends Component {
         
         return (
             <>  
+                <Add_btn history={this.props.history} ></Add_btn>
                 <Table>
                     <thead>
                         <tr>

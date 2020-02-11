@@ -11,6 +11,7 @@ import {
   Switch,
   useHistory
 } from "react-router-dom";
+import Add_btn from "./Buttons/Add_btn";
 
 function Detaills() {
 
@@ -35,8 +36,8 @@ function Edit() {
 const App = () => (
   
   <div>
-     <Navbar style={{ backgroundColor: "#FF9326", color: "white" }} light expand="md">
-       <img src="https://pasiona.com/wp-content/uploads/2017/02/logo_pasiona-blanco.png" alt="Pasiona" style={{height:70}}></img>
+    <Navbar style={{ backgroundColor: "#FF9326", color: "white" }} light expand="md">
+      <img src="https://pasiona.com/wp-content/uploads/2017/02/logo_pasiona-blanco.png" alt="Pasiona" style={{height:70}}></img>
     </Navbar>
     <BrowserRouter>
       <Switch>
