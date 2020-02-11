@@ -2,22 +2,23 @@ import React from "react";
 import Details from "./Details"
 import Form_edit from "./Form_edit"
 import Main from "./Main"
+import {Navbar} from 'reactstrap';
 
 import {
   BrowserRouter,
   Route,
   useParams,
   Switch,
-  useRouteMatch,
   useHistory
 } from "react-router-dom";
 
 function Detaills() {
 
   let { id } = useParams();
+  let history = useHistory();
 
   return (
-    <Details id={id} />
+    <Details id={id} history={history}/>
   );
 }
 
@@ -32,7 +33,11 @@ function Edit() {
 }
 
 const App = () => (
+  
   <div>
+     <Navbar style={{ backgroundColor: "#FF9326", color: "white" }} light expand="md">
+       <img src="https://pasiona.com/wp-content/uploads/2017/02/logo_pasiona-blanco.png" alt="Pasiona" style={{height:70}}></img>
+    </Navbar>
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Main} />
