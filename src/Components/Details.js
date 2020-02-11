@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { get_single } from "../thunks/index";
+import { Card, CardTitle, CardText, ButtonGroup } from 'reactstrap';
+import  Edit_btn from './Buttons/Edit_btn';
+import  Delete_btn from './Buttons/Delete_btn';
 
 const mapStateToProps = state => {
     return { obj: state.single }
@@ -30,24 +33,17 @@ class Details extends Component {
     }
     render() {
         return (
-            <>
-                <div>
-                    <label>Name</label>
-                    <input type="text" id="name" value={this.props.obj.name} onChange={this.handleChange} />
+            <Card body style={{margin: 10, width: 250, padding: 0, textAlign: "center"}}>
+                <div style={{backgroundColor: this.props.obj.color, height: 50, padding:10}}>
+                    <CardTitle style={{fontSize: 20, fontWeight: "bold"}}>{this.props.obj.name}</CardTitle>
                 </div>
-                <div>
-                    <label>Email</label>
-                    <input type="text" id="email" value={this.props.obj.email} onChange={this.handleChange} />
-                </div>
-                <div>
-                    <label>Rate</label>
-                    <input type="text" id="rate" value={this.props.obj.rate} onChange={this.handleChange} />
-                </div>
-                <div>
-                    <label>Color</label>
-                    <input type="text" id="color" value={this.props.obj.color} onChange={this.handleChange} />
-                </div>
-            </>
+                <CardText style={{padding:10, margin: 0}}>Correo: {this.props.obj.email}<br/>{this.props.obj.rate}/10</CardText>
+                
+                <ButtonGroup>
+                    <Edit_btn id={this.props.id} history={this.props.history}/>
+                    <Delete_btn id={this.props.id} history={this.props.history}/>
+                </ButtonGroup>
+            </Card>
         );
     }
 }
