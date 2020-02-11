@@ -75,7 +75,6 @@ class FormEdit extends Component {
                 </FormGroup>
                 <FormGroup>
                     <Label for="color">Color:</Label>
-                    {/* <Input type="text" name="color" id="color" value={this.state.color} onChange={this.handleChange}/> */}
                     <ChromePicker color={this.state.color} onChange={this.handleColorChange}></ChromePicker>
                 </FormGroup>
                 <Button onClick={this.save}>SAVE ELEMENT</Button>
