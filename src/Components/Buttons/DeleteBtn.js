@@ -8,7 +8,7 @@ const mapDispatchToProps = {
     get_multiple
 }
 
-class Delete_btn extends Component {
+class DeleteBtn extends Component {
 
     render() {
         return (
@@ -16,5 +16,5 @@ class Delete_btn extends Component {
         );
     }
 }
-const delete_btn = connect(null, mapDispatchToProps)(Delete_btn);
-export default delete_btn;
+const deleteBtn = connect(null, mapDispatchToProps)(DeleteBtn);
+export default deleteBtn;

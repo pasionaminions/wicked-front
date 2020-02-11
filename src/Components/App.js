@@ -1,7 +1,7 @@
 import React from "react";
-import Details from "./Details"
-import Form_edit from "./Form_edit"
-import Main from "./Main"
+import Details from "./Details";
+import FormEdit from "./FormEdit";
+import Main from "./Main";
 import {Navbar} from 'reactstrap';
 
 import {
@@ -11,7 +11,6 @@ import {
   Switch,
   useHistory
 } from "react-router-dom";
-import Add_btn from "./Buttons/Add_btn";
 
 function Detaills() {
 
@@ -29,7 +28,7 @@ function Edit() {
   let history = useHistory();
 
   return (
-    <Form_edit id={id} history={history}/>
+    <FormEdit id={id} history={history}/>
   );
 }
 
