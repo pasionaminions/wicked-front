@@ -1,37 +1,9 @@
 import React from "react";
+import Form_edit from "./Form_edit";
 import Details from "./Details"
-import Form_edit from "./Form_edit"
-import Main from "./Main"
+import Main from "./Main";
 import {Navbar} from 'reactstrap';
-
-import {
-  BrowserRouter,
-  Route,
-  useParams,
-  Switch,
-  useHistory
-} from "react-router-dom";
-import Add_btn from "./Buttons/Add_btn";
-
-function Detaills() {
-
-  let { id } = useParams();
-  let history = useHistory();
-
-  return (
-    <Details id={id} history={history}/>
-  );
-}
-
-function Edit() {
-
-  let { id } = useParams();
-  let history = useHistory();
-
-  return (
-    <Form_edit id={id} history={history}/>
-  );
-}
+import { BrowserRouter, Route, useParams, Switch, useHistory } from "react-router-dom";
 
 const App = () => (
   
@@ -42,8 +14,8 @@ const App = () => (
     <BrowserRouter>
       <Switch>
         <Route exact path="/"            component={Main} />
-        <Route exact path="/edit/:id?"   component={Edit} />
-        <Route exact path="/details/:id" component={Detaills} />
+        <Route exact path="/edit/:id?"   component={Form_edit} />
+        <Route exact path="/details/:id" component={Details} />
       </Switch>
     </BrowserRouter>
     

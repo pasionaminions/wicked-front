@@ -15,7 +15,7 @@ const mapDispatchToProps = {
 class Form_edit extends Component {
     constructor(props) {
         super(props);
-        this.new = props.id === undefined;
+        this.new = props.match.params.id === undefined;
         
         this.state = {
             name: "",
@@ -25,25 +25,10 @@ class Form_edit extends Component {
         };
     }
 
-    // static getDerivedStateFromProps(props, state) {
-    //     if (!isEmpty(props.single) && !state.state) {
-    //         return {
-    //             id: props.single.id,
-    //             name: props.single.name,
-    //             email: props.single.email,
-    //             rate: props.single.rate,
-    //             color: props.single.color,
-    //         }
-    //     }
-    //     else {
-    //         return state;
-    //     }
-    // }
-
     componentDidMount() {
         if (this.new) return;
 
-        this.props.get_single(this.props.id)
+        this.props.get_single(this.props.match.params.id)
         .then(() => this.setState(() => {
             return {name: this.props.single.name,
                 email: this.props.single.email,
@@ -59,7 +44,7 @@ class Form_edit extends Component {
         if (this.new) {
             prom = this.props.post_user(obj);
         } else {
-            obj.id = parseInt(this.props.id);
+            obj.id = parseInt(this.props.match.params.id);
             prom = this.props.edit_user(obj.id, obj);
         }
         prom.then(() => this.props.history.push("/"));
