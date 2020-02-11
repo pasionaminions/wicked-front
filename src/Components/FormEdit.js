@@ -60,7 +60,7 @@ class FormEdit extends Component {
 
     render() {
         return (
-            <Form>
+            <Form style={{margin: 20, width: 500}}>
                 <FormGroup>
                     <Label for="name">Name:</Label>
                     <Input type="text" name="name" id="name" value={this.state.name} onChange={this.handleChange} />
