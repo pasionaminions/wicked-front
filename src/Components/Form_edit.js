@@ -1,37 +1,56 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { isEmpty } from 'lodash';
+import { get_single } from "../thunks";
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 const mapStateToProps = state => {
     return { single: state.single }
 }
 
+const mapDispatchToProps = {
+    get_single
+}
+
 class Form_edit extends Component {
     constructor(props) {
         super(props);
+        this.new = props.id === undefined;
+        
         this.state = {
             name: "",
             email: "",
             rate: 0,
-            color: ""
+            color: "",
+            loaded: this.new
         };
     }
 
-    static getDerivedStateFromProps(props, state) {
-        if (!isEmpty(props.single) && !state.state) {
-            return {
-                id: props.single.id,
-                name: props.single.name,
-                email: props.single.email,
-                rate: props.single.rate,
-                color: props.single.color,
-                state: true
-            }
-        }
-        else {
-            return state;
-        }
+    // static getDerivedStateFromProps(props, state) {
+    //     if (!isEmpty(props.single) && !state.state) {
+    //         return {
+    //             id: props.single.id,
+    //             name: props.single.name,
+    //             email: props.single.email,
+    //             rate: props.single.rate,
+    //             color: props.single.color,
+    //         }
+    //     }
+    //     else {
+    //         return state;
+    //     }
+    // }
+
+    componentDidMount() {
+        if (this.new) return;
+        
+        this.props.get_single(this.props.id)
+        .then(() => this.setState(() => {
+            return {name: this.props.single.name,
+                email: this.props.single.email,
+                rate: this.props.single.rate,
+                color: this.props.single.color}
+        }));
     }
 
     handleChange = (event) => {
@@ -62,6 +81,6 @@ class Form_edit extends Component {
     }
 }
 
-const Edit = connect(mapStateToProps)(Form_edit);
+const Edit = connect(mapStateToProps, mapDispatchToProps)(Form_edit);
 
 export default Edit;
